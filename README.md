@@ -25,6 +25,6 @@ Refere to [this documentation](https://platform.openai.com/docs/models) on which
 # How to Run
 
 bundle install
-ruby src/main.rb
+ruby src/bot.rb
 
 In the discord channel type /chatgpt to ask ChatGPT questions.
