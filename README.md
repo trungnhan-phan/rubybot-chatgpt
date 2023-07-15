@@ -1,5 +1,5 @@
 # discordbot-chatgpt
-A simple Discord Bot in Python interacting with ChatGPT API
+A fun Discord Bot written in Ruby interacting with ChatGPT API.
 
 # Setup
 
