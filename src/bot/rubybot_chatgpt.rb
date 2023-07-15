@@ -44,14 +44,27 @@ class RubybotChatgpt < Discordrb::Bot
             max_tokens: 2000,
         })
 
-      raise response.dig("error", "message") if response.dig("error")
-      response.dig("choices", 0, "message")
+      response.dig("choices", 0, "message", "content")
     rescue StandardError => e
       puts "An error occurred while interacting with ChatGPT: #{e.message}"
     end
   end
 
   def split_message_chunks(message)
-    message.chars.each_slice(DISCORD_MAX_LEN).map(&:join)
+    words = message.split(' ')
+    chunks = []
+    current_chunk = ''
+  
+    words.each do |word|
+      if current_chunk.empty? || (current_chunk.length + word.length + 1) <= DISCORD_MAX_LEN
+        current_chunk << (current_chunk.empty? ? word : " #{word}")
+      else
+        chunks << current_chunk
+        current_chunk = word
+      end
+    end
+  
+    chunks << current_chunk unless current_chunk.empty?
+    chunks
   end
 end

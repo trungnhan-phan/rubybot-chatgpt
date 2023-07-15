@@ -19,7 +19,7 @@ Next add your [organization id](https://platform.openai.com/account/org-settings
 
 ## GPT Model
 
-Refere to [this documentation](https://platform.openai.com/docs/models) on which model is best for you. Default in the configuration is set to text-davinci-003.
+Refere to [this documentation](https://platform.openai.com/docs/models) on which model is best for you. Default in the configuration is set to gpt-3.5-turbo.
 
 
 # How to Run
